@@ -83,20 +83,20 @@
 // // // })
 // // // // console.log(promise)
 
-// // // //--instance of our promise will show it is pending
-// // // //--doesn't show change whether it was fulfilled or rejecteed
-// // // //--constructor functions create objects and they have their own properties and methods and all created promises can invoke 2 methods  (then and catch and both accept their own functions)
+//--instance of our promise will show it is pending
+//--doesn't show change whether it was fulfilled or rejecteed
+//--constructor functions create objects and they have their own properties and methods and all created promises can invoke 2 methods  (then and catch and both accept their own functions)
 
-// // // promise.then().catch()
+promise.then().catch()
 // // // //when resolve is called, the code will execute to "then" function 
 // // // //when reject is called, the code will excute the code passed to "reject" function
 // // // //only one can be executed -- either fulfilled or rejected 
 
-// // // promise.then(() => console.log("success")).catch(() => console.log("failed"))
+promise.then(() => console.log("success")).catch(() => console.log("failed"))
 
 // // // //we still are not getting our "done" message however
 // // // //we pass in the value that we passed earlier, can name it as we wish 
-// // // promise.then(value => console.log(value)).catch(() => console.log("failed"))
+promise.then(value => console.log(value)).catch(() => console.log("failed"))
 
 // // // //change the function above to reject and get the "failed output "
 // // // promise
@@ -108,33 +108,33 @@
 
 // // // /// -- since we are now familiar with promises, lets revisit the earlier example 
 
-// // // new Promise ((resolve, reject) => {
-// // //     navigator.geolocation.getCurrentPosition(position => {
-// // //         console.log(position); 
-// // //         //we know that when we get the position, our promise was able to resolve successfully 
-// // //         //therefore we can pass position into resolve
-// // //         resolve(position)
+new Promise ((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(position => {
+        console.log(position); 
+        //we know that when we get the position, our promise was able to resolve successfully 
+        //therefore we can pass position into resolve
+        resolve(position)
         
-// // //         //but what if it failed?
-// // //       }, error => {
-// // //           reject(error)
-// // //       }); 
-// // // })
+        //but what if it failed?
+      }, error => {
+          reject(error)
+      }); 
+})
 
 // // // //now we get our promise instance to our promise constructor function so we save it to a variable 
 
-// // // const promise = new Promise ((resolve, reject) => {
-// // //     navigator.geolocation.getCurrentPosition(position => {
-// // //         console.log(position); 
-// // //         //we know that when we get the position, our promise was able to resolve successfully 
-// // //         //therefore we can pass position into resolve
-// // //         resolve(position)
+const promise = new Promise ((resolve, reject) => {
+    navigator.geolocation.getCurrentPosition(position => {
+        console.log(position); 
+        //we know that when we get the position, our promise was able to resolve successfully 
+        //therefore we can pass position into resolve
+        resolve(position)
         
-// // //         //but what if it failed?
-// // //       }, error => {
-// // //           reject(error)
-// // //       }); 
-// // // })
+        //but what if it failed?
+      }, error => {
+          reject(error)
+      }); 
+})
 
 // // // //now we can use method chaining 
 // // // promise
@@ -169,13 +169,13 @@
 
 // // // //promise instance is returned 
 
-// // // console.log(fetch('https://jsonplaceholder.typicode.com/posts/1'));
+// console.log(fetch('https://jsonplaceholder.typicode.com/posts/1'));
 
-// // fetch('https://jsonplaceholder.typicode.com/posts/1')
-//         //we use the endpoint above to make a request for a single post
+fetch('https://jsonplaceholder.typicode.com/posts/1')
+////we use the endpoint above to make a request for a single post
 
-// //     .then(response => response.json())
-//         //we get a response and then we use to convert the response into json data
+    .then(response => response.json())
+        // we get a response and then we use to convert the response into json data
 
 
 
@@ -187,33 +187,33 @@
 // //     //for anything apart from a simple GET request, we need to pass in an object as a second argument 
 
 // //     ///this is our object where we would be making our POST request
-// //     const blogPost = {
-// //         title: "Cool post",
-// //         body: "lkajsdflkjasjlfda",
-// //         userId: 1  
-// //       }
+    const blogPost = {
+        title: "Cool post",
+        body: "lkajsdflkjasjlfda",
+        userId: 1  
+      }
 
-// //       fetch('https://jsonplaceholder.typicode.com/posts', {
-// //         method: "POST",
-// //         headers: {
-// //            "Content-Type": "application/json" 
-// //         },
-// //         body: JSON.stringify(blogPost)
-// //       })
-// //         .then(response => response.json())
-// //         .then(data => console.log(data))
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: "POST",
+        headers: {
+           "Content-Type": "application/json" 
+        },
+        body: JSON.stringify(blogPost)
+      })
+        .then(response => response.json())
+        .then(data => console.log(data))
 
 
-// //   /// But what if we have a problem with our GET request??  
+/////// But what if we have a problem with our GET request??  
 
-// //   fetch('https://jsonplaceholder.typicode.com/pots/1')
-// //   .then(response => response.json())
-// //   .then(data => console.log(data))
-// //   //fetch promise will result in an object even if it fails 
+  fetch('https://jsonplaceholder.typicode.com/pots/1')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  //fetch promise will result in an object even if it fails 
 
-// //   .catch(error => console.error(error))
-// //   //to use the error approach, we need to define and detect the error ourselves using the status code
-// // //this will be doing with OK 
+  .catch(error => console.error(error))
+  //to use the error approach, we need to define and detect the error ourselves using the status code
+//this will be doing with OK 
 
 
 // fetch('https://jsonplaceholder.typicode.com/posts')
