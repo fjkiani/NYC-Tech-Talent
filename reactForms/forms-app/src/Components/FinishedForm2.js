@@ -27,7 +27,9 @@ class FinishedForm2 extends Component {
         // })
 
 
-        type === "checkbox" ? this.setState({ [name]: checked }) : this.setState({ [name]: value })
+        type === "checkbox" ? 
+        this.setState({ [name]: checked }) 
+        : this.setState({ [name]: value })
 
         //4 to update the state, we can use either if statement or a terneray operator 
     }
